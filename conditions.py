@@ -32,12 +32,48 @@ def recommend_book(name, age):
         print(f"Тебе стоит почитать 'Курочку Рябу'.")
     else:
         print(f"Тебе стоит почитать 'Войну и Мир'.")
+def get_recommendation(age):
+    """
+    Возвращает название книги на основе возраста.
+    Параметры:
+        age (int): Возраст человека
+    Возвращает:
+        str: Название книги
+    """
+    if age == 5:
+        return "Каштанку"
+    elif 6 <= age <= 21:
+        return "Курочку Рябу"
+    else:
+        return "Войну и Мир"
+
+def get_recommendation(age: int) -> str:
+    """
+    Возвращает название книги на основе возраста.
+    Параметры:
+        age (int): Возраст человека
+    Возвращает:
+        str: Название книги
+    """
+    if age <= 5:
+        return "Каштанку"
+    elif 6 <= age <= 21:
+        return "Курочку Рябу"
+    else:
+        return "Войну и Мир"
 
 # Основная программа
 def main():
-    recommend_book("Анна", 5)
-    recommend_book("Иржик", 10)
-    recommend_book("Олег", 30)
+    name = "Иржик"
+    print(f"Привет, {name}!")
+
+    user_age = int(input(f"{name}, сколько тебе лет?\n"))
+
+    # Получаем результат работы функции
+    book = get_recommendation(user_age)
+
+    # Используем полученный результат
+    print(f"Понятно, тебе {user_age} лет. Почитай {book}")
 
 # Запуск
 main()
